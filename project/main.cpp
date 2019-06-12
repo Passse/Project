@@ -12,7 +12,10 @@ using namespace std;
 int main(){
     int i;
     cin>>i;
-    if(i=612){
+    if(i=1){
+        cout<<"鲷鱼"<<endl;
+    }
+    else{
         cout<<"Mac10"<<endl;
     }
     return 0;
