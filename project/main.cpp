@@ -13,7 +13,7 @@ int main(){
     int i;
     cin>>i;
     if(i=1){
-        cout<<"鲷鱼"<<endl;
+        cout<<"Qie"<<endl;
     }
     else{
         cout<<"Mac10"<<endl;
