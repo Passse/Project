@@ -14,7 +14,7 @@ private:
 public:
     void display(){
         if(i==1){
-            cout<<"C++"<<endl;
+            cout<<"不会C++"<<endl;
         }
     }
 };
