@@ -10,7 +10,7 @@
 #include <string>
 using namespace std;
 
-template<class A>
+template <class A>
 void sort(A *a, int size){
     int i;
     for(i=0;i<size;i++){
@@ -21,30 +21,27 @@ void sort(A *a, int size){
         int j;
         for(j=1;j<size;j++){
             if(a[j]<a[j-1]){
-                aa=a[j-1];
-                a[j-1]=a[j];
-                a[j]=aa;
+                aa=a[j];
+                a[j]=a[j-1];
+                a[j-1]=aa;
             }
         }
     }
 }
 
 
-
 template <class T>
 void display(T* a, int size){
-    for(int i=0; i<size-1; i++){
-        cout<<a[size-1]<<endl;
-    }
+    for(int i=0; i<size-1; i++) cout<<a[i]<<' ';
+    cout<<a[size-1]<<endl;
 }
-
-int main(void) {
+int main() {
     const int SIZE=10;
     int a[SIZE];
     char b[SIZE];
     double c[SIZE];
     string d[SIZE];
-    int ty,size;
+    int ty, size;
     cin>>ty;
     while(ty>0){
         cin>>size;
