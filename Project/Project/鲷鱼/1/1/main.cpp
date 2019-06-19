@@ -8,17 +8,25 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    ofstream ef("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/data.txt");
-    ifstream ief("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/data.txt");
-    //cout<<"c ="<<a+b<<endl;
-    if(ef.is_open())
-    {
-        ef<<"xing"<<endl;
+    ofstream ef1("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/裁判信息.txt");
+    ofstream ef2("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/学生信息.txt");
+    int i,j;
+    string name,xb,yuanxi;
+    int bh;
+    int a[7];
+    int b[10];
+    for(i=0;i<6;i++){
+        ef1<<a[i];
     }
+    for(j=0;j<9;j++){
+        ef2<<b[j];
+    }
+    
     return 0;
 }
 
