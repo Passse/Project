@@ -19,11 +19,11 @@ int main()
     string name,xb,yuanxi;
     int bh;
     int a[7];
-    int b[10];
+    int b[7];
     for(i=0;i<6;i++){
         ef1<<a[i];
     }
-    for(j=0;j<9;j++){
+    for(j=0;j<6;j++){
         ef2<<b[j];
     }
     
