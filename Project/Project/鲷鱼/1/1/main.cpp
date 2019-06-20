@@ -11,21 +11,35 @@
 #include <string>
 using namespace std;
 
-int main()
+struct Student {
+    int num1;
+    string name1;
+    string xb;
+    string xy;
+};
+struct CP {
+    string num2;
+    string name2;
+    string c1;
+};
+int main(void)
 {
-    ofstream ef1("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/裁判信息.txt");
-    ofstream ef2("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/学生信息.txt");
+    ifstream ef1("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/学生信息.txt");
+    ifstream ef2("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/裁判信息.txt");
     int i,j;
-    string name,xb,yuanxi;
-    int bh;
-    int a[7];
-    int b[7];
-    for(i=0;i<6;i++){
-        ef1<<a[i];
+    struct Student s1[7];
+    struct CP s2[7];
+    for(i=1;i<=7;i++){
+        ef1>>s1[i].num1>>s1[i].name1>>s1[i].xb>>s1[i].xy;
     }
-    for(j=0;j<6;j++){
-        ef2<<b[j];
+    
+    for(j=1;j<=7;j++){
+        ef2>>s2[i].num2>>s2[i].name2>>s2[i].c1;
     }
+    for(j=1;j<=7;j++){
+        cout<<s2[i].num2<<" "<<s2[i].name2<<" "<<s2[i].c1<<endl;
+    }
+    
     
     return 0;
 }
