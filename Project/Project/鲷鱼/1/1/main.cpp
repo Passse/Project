@@ -12,37 +12,60 @@
 using namespace std;
 
 struct Student {
-    int num1;
+    int number1;
     string name1;
-    string xb;
-    string xy;
-};
-struct CP {
-    string num2;
+    string sexual;
+    string college;
+}a[7];
+
+struct Referee{
+    string number2;
     string name2;
-    string c1;
-};
+    string sexual;
+    string score[7];
+}b[7];
+
 int main(void)
 {
     ifstream ef1("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/学生信息.txt");
     ifstream ef2("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/裁判信息.txt");
-    int i,j;
-    struct Student s1[7];
-    struct CP s2[7];
-    for(i=1;i<=7;i++){
-        ef1>>s1[i].num1>>s1[i].name1>>s1[i].xb>>s1[i].xy;
+    int i;
+    cout<<"       The competition is begining          "<<endl;
+    cout<<"<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>"<<endl;
+    cout<<"Ask the player to the enter:"<<endl;
+    for(i=0;i<7;i++){
+        ef1>>a[i].number1>>a[i].name1>>a[i].sexual>>a[i].college;
     }
-    
-    for(j=1;j<=7;j++){
-        ef2>>s2[i].num2>>s2[i].name2>>s2[i].c1;
+    for(i=0;i<7;i++){
+        cout<<"    "<<a[i].number1<<" "<<a[i].name1<<" "<<a[i].sexual<<" "<<a[i].college<<endl;
     }
-    for(j=1;j<=7;j++){
-        cout<<s2[i].num2<<" "<<s2[i].name2<<" "<<s2[i].c1<<endl;
+    cout<<endl;
+    cout<<"          This is the Referee                  "<<endl;
+    cout<<"*******************************************"<<endl;
+    for(i=0;i<7;i++){
+        ef2>>b[i].number2>>b[i].name2>>b[i].sexual;
+        for(int j=0;j<7;j++){
+            ef2>>b[i].score[j];
+        }
     }
-    
+    for(i=0;i<7;i++){
+        cout<<b[i].number2<<" "<<b[i].name2<<" "<<b[i].sexual<<" ";
+        /*for(int j=0;j<7;j++){
+            cout<<b[i].score[j]<<" "  ;
+        }*/
+        cout<<endl;
+    }
+    cout<<endl;
+    cout<<"->Player score:"<<endl;
+    for(int i=0;i<7;i++){
+        //out<<"Num."<<i+1<<" ";
+        cout<<a[i].name1<<" ";
+        for(int j=0;j<7;j++){
+            cout<<b[i].score[j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<"最终成绩:"<<endl;
     
     return 0;
 }
-
-
-
