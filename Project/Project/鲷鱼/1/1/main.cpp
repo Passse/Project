@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 struct Student {
@@ -57,6 +58,7 @@ int main(void)
     }
     cout<<endl;
     cout<<"->Player score:"<<endl;
+    cout<<endl;
     for(int i=0;i<7;i++){
         //out<<"Num."<<i+1<<" ";
         cout<<a[i].name1<<" ";
@@ -66,6 +68,17 @@ int main(void)
         cout<<endl;
     }
     cout<<"最终成绩:"<<endl;
+    string  sum=0;
     
+    for(int i=0;i<7;i++){
+        sort(b[i].score,b[i].score+7);
+    }
+    for(i=0;i<7;i++){
+        for(int j=0;j<7;j++){
+            sum+=b[i].score[j];
+            cout<<b[i].score[j]<<" ";
+            cout<<sum<<endl;
+        }
+    }
     return 0;
 }
