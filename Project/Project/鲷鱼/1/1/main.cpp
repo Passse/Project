@@ -9,77 +9,137 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <algorithm>
+#include <sstream>
 using namespace std;
+
+template <class Type>
+Type stringToNum(const string& str)
+{
+    istringstream iss(str);
+    Type num;
+    iss>>num;
+    return num;
+}//参考CSDN 将string转化为int类
 
 struct Student {
     string number1;
     string name1;
     string sexual;
-    int college;
-}a[7];
+    string college;
+    double average;
+}Student_a[7];
 
-struct Referee{
+struct Judge{
     string number2;
     string name2;
     string sexual;
     string score[7];
-}b[7];
+    string judge_college;
+}Judge_a[7];
 
 int main(void)
 {
-    ifstream ef1("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/学生信息.txt");
-    ifstream ef2("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/裁判信息.txt");
+    ifstream student_info("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/学生信息.txt");
+    ifstream judge_info("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/裁判信息.txt");
+    ofstream score_out("/Users/s20181102933/Desktop/project/Project/Project/鲷鱼/1/1/成绩.txt");
     int i;
     cout<<"       The competition is begining          "<<endl;
     cout<<"<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>"<<endl;
     cout<<"Ask the player to the enter:"<<endl;
+    cout<<endl;
     for(i=0;i<7;i++){
-        ef1>>a[i].number1>>a[i].name1>>a[i].sexual>>a[i].college;
+        student_info>>Student_a[i].number1>>Student_a[i].name1>>Student_a[i].sexual>>Student_a[i].college;
     }
     for(i=0;i<7;i++){
-        cout<<"    "<<a[i].number1<<" "<<a[i].name1<<" "<<a[i].sexual<<" "<<a[i].college<<endl;
+        cout<<"    "<<Student_a[i].number1<<" "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<" "<<Student_a[i].college<<endl;
     }
     cout<<endl;
-    cout<<"          This is the Referee                  "<<endl;
+    cout<<"                 裁判名单                  "<<endl;
     cout<<"*******************************************"<<endl;
     for(i=0;i<7;i++){
-        ef2>>b[i].number2>>b[i].name2>>b[i].sexual;
+        judge_info>>Judge_a[i].number2>>Judge_a[i].name2>>Judge_a[i].sexual>>Judge_a[i].judge_college;
         for(int j=0;j<7;j++){
-            ef2>>b[i].score[j];
+            judge_info>>Judge_a[i].score[j];
         }
     }
     for(i=0;i<7;i++){
-        cout<<b[i].number2<<" "<<b[i].name2<<" "<<b[i].sexual<<" ";
+        cout<<Judge_a[i].number2<<" "<<Judge_a[i].name2<<" "<<Judge_a[i].sexual<<" "<<Judge_a[i].judge_college;
         /*for(int j=0;j<7;j++){
             cout<<b[i].score[j]<<" "  ;
         }*/
         cout<<endl;
     }
     cout<<endl;
-    cout<<"->Player score:"<<endl;
+    cout<<"    <-Player score->"<<endl;
     cout<<endl;
     for(int i=0;i<7;i++){
         //out<<"Num."<<i+1<<" ";
-        cout<<a[i].name1<<" ";
+        cout<<Student_a[i].name1<<"  "<<Student_a[i].sexual<<"   ";
         for(int j=0;j<7;j++){
-            cout<<b[i].score[j]<<" ";
+            cout<<Judge_a[i].score[j]<<" ";
         }
         cout<<endl;
     }
+    cout<<endl;
+    cout<<"       比赛结束      "<<endl;
+    cout<<"----------------------"<<endl;
+    cout<<"    裁判打分并统计成绩    "<<endl;
     cout<<"最终成绩:"<<endl;
-    string  sum=0;
-    
+    int  sum=0;
+    int k[7];
+    int s;
+    //double average;
     for(int i=0;i<7;i++){
-        sort(b[i].score,b[i].score+7);
+        sum=0;
+        for(int j=0;j<7;j++){
+            k[j]=stringToNum<int>(Judge_a[i].score[j]);
+        }
+    for(int h=0;h<7;h++){
+        for(int g=1;g<7;g++){
+            if(k[g]<k[g-1]){
+                s=k[g];
+                k[g]=k[g-1];
+                k[g-1]=s;
+            }
+        }
+
     }
-    
-    for(i=0;i<7;i++){
+        /*for(int y=0;y<7;++y)
+            cout<<k[y]<<" ";*/
+        for(int y=1;y<6;y++){
+            sum+=k[y];
+        }
+        Student_a[i].average=sum*1.0/5;
+        //cout<<a[i].average<<"  ";
+        //cout<<sum;
+        //cout<<endl;
+    }
+    /*for(i=0;i<7;i++){
         for(int j=0;j<7;j++){
             sum+=b[i].score[j];
             cout<<b[i].score[j]<<" ";
             cout<<sum<<endl;
         }
+    }*/
+    for(int i=0;i<7;i++){
+        Student variable;
+        for(int j=1;j<7;j++){
+            if(Student_a[j].average>Student_a[j-1].average){
+                variable=Student_a[j];
+                Student_a[j]=Student_a[j-1];
+                Student_a[j-1]=variable;
+            }
+        }
     }
+    for(int i=0;i<7;i++){
+        cout<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<" "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<" "<<Student_a[i].college<<" "<<Student_a[i].average<<endl;
+    }
+    for(i=0;i<7;i++){
+        score_out<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<" "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<" "<<Student_a[i].college<<Student_a[i].average<<endl;
+    }
+    cout<<endl;
+    cout<<"第一名🥇: "<<Student_a[0].name1<<" "<<Student_a[1].average<<endl;
+    cout<<"第二名🥈: "<<Student_a[1].name1<<" "<<Student_a[2].average<<endl;
+    cout<<"第三名🥉: "<<Student_a[2].name1<<" "<<Student_a[3].average<<endl;
     return 0;
 }
