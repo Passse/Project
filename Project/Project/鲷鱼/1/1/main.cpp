@@ -13,10 +13,10 @@
 using namespace std;
 
 struct Student {
-    int number1;
+    string number1;
     string name1;
     string sexual;
-    string college;
+    int college;
 }a[7];
 
 struct Referee{
@@ -73,6 +73,7 @@ int main(void)
     for(int i=0;i<7;i++){
         sort(b[i].score,b[i].score+7);
     }
+    
     for(i=0;i<7;i++){
         for(int j=0;j<7;j++){
             sum+=b[i].score[j];
