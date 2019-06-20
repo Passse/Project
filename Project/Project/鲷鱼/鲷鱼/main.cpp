@@ -7,17 +7,29 @@
 //
 
 #include <iostream>
+#include<algorithm>
+#include <cmath>
 using namespace std;
-
-
-
-
-
-
-
-
 int main(){
-    int i=1;
-    cout<<i<<endl;
-    return 0;
+    int i;
+    int a[10];
+        for(i=0;i<10;i++){
+            cin>>a[i];
+        }
+    
+        for(i=0;i<10;i++){
+            int s;
+            int j;
+            for(j=1;j<10;j++){
+                if(a[j]<a[j-1]){
+                    s=a[j];
+                    a[j]=a[j-1];
+                    a[j-1]=s;
+                }
+            }
+        }
+        sort(a,a+10);
+        for(i=0;i<10;i++){
+            cout<<a[i]<<endl;
+            }
 }
