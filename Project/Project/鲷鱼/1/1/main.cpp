@@ -78,6 +78,7 @@ int main(void)
         for(int j=0;j<7;j++){
             cout<<Judge_a[i].score[j]<<" ";
         }
+        cout<<Student_a[i].college;
         cout<<endl;
     }
     cout<<endl;
@@ -134,12 +135,15 @@ int main(void)
     for(int i=0;i<7;i++){
         cout<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<" "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<" "<<Student_a[i].college<<" "<<Student_a[i].average<<endl;
     }
-    for(i=0;i<7;i++){
-        score_out<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<" "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<" "<<Student_a[i].college<<Student_a[i].average<<endl;
+    for(int i=0;i<7;i++){
+        score_out<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<" "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<" "<<Student_a[i].college<<"    "<<Student_a[i].average<<endl;
     }
+    //cout<<endl;
+    /*cout<<"一等奖 : "<<Student_a[0].name1<<" "<<Student_a[0].average<<" "<<Student_a[0].college<<endl;
+    cout<<"二等奖 : "<<Student_a[1].name1<<" "<<Student_a[1].average<<" "<<Student_a[1].college<<endl;
+    cout<<"三等奖 : "<<Student_a[2].name1<<" "<<Student_a[2].average<<" "<<Student_a[2].college<<endl;*/
     cout<<endl;
-    cout<<"第一名🥇: "<<Student_a[0].name1<<" "<<Student_a[1].average<<endl;
-    cout<<"第二名🥈: "<<Student_a[1].name1<<" "<<Student_a[2].average<<endl;
-    cout<<"第三名🥉: "<<Student_a[2].name1<<" "<<Student_a[3].average<<endl;
+    cout<<"      结束"<<endl;
+    cout<<"<<<<<<<<>>>>>>>>"<<endl;
     return 0;
 }
