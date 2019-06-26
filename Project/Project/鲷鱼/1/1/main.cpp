@@ -94,7 +94,8 @@ int main(void)
         sum=0;
         for(int j=0;j<7;j++){
             k[j]=stringToNum<int>(Judge_a[i].score[j]);
-        }
+        }//字符串传化为整形的实现。
+        
     for(int h=0;h<7;h++){
         for(int g=1;g<7;g++){
             if(k[g]<k[g-1]){
@@ -121,7 +122,8 @@ int main(void)
             cout<<b[i].score[j]<<" ";
             cout<<sum<<endl;
         }
-    }*/
+    } 计算和的测试*/
+    
     for(int i=0;i<7;i++){
         Student variable;
         for(int j=1;j<7;j++){
