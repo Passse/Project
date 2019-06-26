@@ -145,6 +145,6 @@ int main(void)
     cout<<"三等奖 : "<<Student_a[2].name1<<" "<<Student_a[2].average<<" "<<Student_a[2].college<<endl;*/
     cout<<endl;
     cout<<"      结束"<<endl;
-    cout<<"<<<<<<<<>>>>>>>>"<<endl;
+    cout<<"<<<<<<<<>>>>>>>>>"<<endl;
     return 0;
 }
