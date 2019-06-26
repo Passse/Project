@@ -64,16 +64,12 @@ int main(void)
     }
     for(i=0;i<7;i++){
         cout<<Judge_a[i].number2<<" "<<Judge_a[i].name2<<" "<<Judge_a[i].sexual<<" "<<Judge_a[i].judge_college;
-        /*for(int j=0;j<7;j++){
-            cout<<b[i].score[j]<<" "  ;
-        }*/
         cout<<endl;
     }
     cout<<endl;
     cout<<"    <-Player score->"<<endl;
     cout<<endl;
     for(int i=0;i<7;i++){
-        //out<<"Num."<<i+1<<" ";
         cout<<Student_a[i].name1<<"  "<<Student_a[i].sexual<<"   ";
         for(int j=0;j<7;j++){
             cout<<Judge_a[i].score[j]<<" ";
@@ -86,43 +82,37 @@ int main(void)
     cout<<"----------------------"<<endl;
     cout<<"    裁判打分并统计成绩    "<<endl;
     cout<<"最终成绩:"<<endl;
+    
     int  sum=0;
     int k[7];
     int s;
-    //double average;
     for(int i=0;i<7;i++){
         sum=0;
         for(int j=0;j<7;j++){
             k[j]=stringToNum<int>(Judge_a[i].score[j]);
         }//字符串传化为整形的实现。
-        
-    for(int h=0;h<7;h++){
-        for(int g=1;g<7;g++){
-            if(k[g]<k[g-1]){
-                s=k[g];
-                k[g]=k[g-1];
-                k[g-1]=s;
+        for(int h=0;h<7;h++){
+            for(int g=1;g<7;g++){
+                if(k[g]<k[g-1]){
+                    s=k[g];
+                    k[g]=k[g-1];
+                    k[g-1]=s;
+                }
             }
         }
-
-    }
-        /*for(int y=0;y<7;++y)
-            cout<<k[y]<<" ";*/
         for(int y=1;y<6;y++){
             sum+=k[y];
         }
         Student_a[i].average=sum*1.0/5;
-        //cout<<a[i].average<<"  ";
-        //cout<<sum;
-        //cout<<endl;
     }
+    
     /*for(i=0;i<7;i++){
         for(int j=0;j<7;j++){
             sum+=b[i].score[j];
             cout<<b[i].score[j]<<" ";
             cout<<sum<<endl;
         }
-    } 计算和的测试*/
+    } 计算成绩和的测试*/
     
     for(int i=0;i<7;i++){
         Student variable;
@@ -134,6 +124,7 @@ int main(void)
             }
         }
     }
+    
     for(int i=0;i<7;i++){
         cout<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<"  "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<"  "<<Student_a[i].college<<"     "<<Student_a[i].average<<endl;
     }
@@ -146,7 +137,7 @@ int main(void)
     cout<<"二等奖 : "<<Student_a[1].name1<<" "<<Student_a[1].average<<" "<<Student_a[1].college<<endl;
     cout<<"三等奖 : "<<Student_a[2].name1<<" "<<Student_a[2].average<<" "<<Student_a[2].college<<endl;*/
     cout<<endl;
-    cout<<"      结束"<<endl;
+    cout<<"     *结束*"<<endl;
     cout<<"<<<<<<<<>>>>>>>>>"<<endl;
     return 0;
 }
