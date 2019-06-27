@@ -84,24 +84,24 @@ int main(void)
     cout<<"最终成绩:"<<endl;
     
     int  sum=0;
-    int k[7];
+    int new_a[7];
     int s;
     for(int i=0;i<7;i++){
         sum=0;
         for(int j=0;j<7;j++){
-            k[j]=stringToNum<int>(Judge_a[i].score[j]);
+            new_a[j]=stringToNum<int>(Judge_a[i].score[j]);
         }//字符串传化为整形的实现。
         for(int h=0;h<7;h++){
             for(int g=1;g<7;g++){
-                if(k[g]<k[g-1]){
-                    s=k[g];
-                    k[g]=k[g-1];
-                    k[g-1]=s;
+                if(new_a[g]<new_a[g-1]){
+                    s=new_a[g];
+                    new_a[g]=new_a[g-1];
+                    new_a[g-1]=s;
                 }
             }
         }
         for(int y=1;y<6;y++){
-            sum+=k[y];
+            sum+=new_a[y];
         }
         Student_a[i].average=sum*1.0/5;
     }
