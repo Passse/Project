@@ -82,7 +82,6 @@ int main(void)
     cout<<"----------------------"<<endl;
     cout<<"    裁判打分并统计成绩    "<<endl;
     cout<<"最终成绩:"<<endl;
-    
     int  sum=0;
     int new_a[7];
     int s;
@@ -124,7 +123,6 @@ int main(void)
             }
         }
     }
-    
     for(int i=0;i<7;i++){
         cout<<"第"<<i+1<<"名"<<" "<<Student_a[i].number1<<"  "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<"  "<<Student_a[i].college<<"     "<<Student_a[i].average<<endl;
     }
