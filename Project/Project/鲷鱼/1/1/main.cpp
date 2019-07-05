@@ -82,9 +82,9 @@ int main(void)
     cout<<"----------------------"<<endl;
     cout<<"    裁判打分并统计成绩    "<<endl;
     cout<<"最终成绩:"<<endl;
-    int  sum=0;
+    int sum=0;
     int new_a[7];
-    int s;
+    int median;
     for(int i=0;i<7;i++){
         sum=0;
         for(int j=0;j<7;j++){
@@ -93,9 +93,9 @@ int main(void)
         for(int h=0;h<7;h++){
             for(int g=1;g<7;g++){
                 if(new_a[g]<new_a[g-1]){
-                    s=new_a[g];
+                    median=new_a[g];
                     new_a[g]=new_a[g-1];
-                    new_a[g-1]=s;
+                    new_a[g-1]=median;
                 }
             }
         }
@@ -130,10 +130,10 @@ int main(void)
     for(int i=0;i<7;i++){
         score_out<<endl<<"第"<<i+1<<"名"<<" "<<"编号:"<<Student_a[i].number1<<"  "<<Student_a[i].name1<<" "<<Student_a[i].sexual<<"  "<<Student_a[i].college<<"    "<<Student_a[i].average<<endl;
     }
-    //cout<<endl;
-    /*cout<<"一等奖 : "<<Student_a[0].name1<<" "<<Student_a[0].average<<" "<<Student_a[0].college<<endl;
+    cout<<endl;
+    cout<<"一等奖 : "<<Student_a[0].name1<<" "<<Student_a[0].average<<" "<<Student_a[0].college<<endl;
     cout<<"二等奖 : "<<Student_a[1].name1<<" "<<Student_a[1].average<<" "<<Student_a[1].college<<endl;
-    cout<<"三等奖 : "<<Student_a[2].name1<<" "<<Student_a[2].average<<" "<<Student_a[2].college<<endl;*/
+    cout<<"三等奖 : "<<Student_a[2].name1<<" "<<Student_a[2].average<<" "<<Student_a[2].college<<endl;
     cout<<endl;
     cout<<"     *结束*"<<endl;
     cout<<"<<<<<<<<>>>>>>>>>"<<endl;
