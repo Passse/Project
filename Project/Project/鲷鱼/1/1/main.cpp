@@ -105,14 +105,6 @@ int main(void)
         Student_a[i].average=sum*1.0/5;
     }
     
-    /*for(i=0;i<7;i++){
-        for(int j=0;j<7;j++){
-            sum+=b[i].score[j];
-            cout<<b[i].score[j]<<" ";
-            cout<<sum<<endl;
-        }
-    } 计算成绩和的测试*/
-    
     for(int i=0;i<7;i++){
         Student variable;
         for(int j=1;j<7;j++){
